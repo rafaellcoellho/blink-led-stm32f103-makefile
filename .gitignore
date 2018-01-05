@@ -4,6 +4,7 @@ cpputest/
 lib/
 objs/
 coverage/
+datasheets/
 
 checkpath.pl
 template
