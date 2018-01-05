@@ -19,11 +19,11 @@ OPT:= -Og
 
 # Source path
 SOURCES_DIR:=  \
-src_app \
-inc_app \
-src_app/main.c \
-src_app/stm32f1xx_it.c \
-src_app/stm32f1xx_hal_msp.c \
+src_stm32 \
+inc_stm32 \
+src_stm32/main.c \
+src_stm32/stm32f1xx_it.c \
+src_stm32/stm32f1xx_hal_msp.c \
 drivers/CMSIS \
 drivers \
 drivers/STM32F1xx_HAL_Driver
@@ -41,14 +41,14 @@ BUILD_DIR:=build
 # C sources
 
 C_SOURCES:= \
-src_app/main.c \
+src_stm32/main.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
-src_app/stm32f1xx_it.c \
-src_app/stm32f1xx_hal_msp.c \
+src_stm32/stm32f1xx_it.c \
+src_stm32/stm32f1xx_hal_msp.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c \
-src_app/system_stm32f1xx.c \
+src_stm32/system_stm32f1xx.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c \
@@ -115,7 +115,7 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
--Iinc_app \
+-Iinc_stm32 \
 -Idrivers/STM32F1xx_HAL_Driver/Inc \
 -Idrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -Idrivers/CMSIS/Device/ST/STM32F1xx/Include \
