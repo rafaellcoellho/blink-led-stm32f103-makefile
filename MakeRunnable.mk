@@ -115,7 +115,7 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
--Iinc_stm32 \
+-Isrc_stm32 \
 -Idrivers/STM32F1xx_HAL_Driver/Inc \
 -Idrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -Idrivers/CMSIS/Device/ST/STM32F1xx/Include \
