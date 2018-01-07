@@ -1,7 +1,4 @@
-all: objfolder tests runnable
-
-objfolder:
-	@ mkdir -p build
+all: tests runnable
 
 analysis:
 	make -f MakeAnalysis.mk V=${V} all

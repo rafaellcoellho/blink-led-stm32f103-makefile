@@ -31,9 +31,6 @@ drivers/STM32F1xx_HAL_Driver
 # Firmware library path
 PERIFLIB_PATH:=
 
-# Build path
-BUILD_DIR:=build
-
 ######################################
 # Source
 ######################################
@@ -144,37 +141,37 @@ LDSCRIPT = STM32F103C8Tx_FLASH.ld
 LIBS = -lc -lm -lnosys
 LIBDIR =
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) \
--Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
+-Wl,-Map=build/$(TARGET).map,--cref -Wl,--gc-sections
 
 #######################################
 # Build the application
 #######################################
 
-all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+all: build/$(TARGET).elf build/$(TARGET).hex build/$(TARGET).bin
 
 # List of objects
-OBJECTS=$(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
+OBJECTS=$(addprefix build/,$(notdir $(C_SOURCES:.c=.o)))
 vpath %.c $(sort $(dir $(C_SOURCES)))
 
 # List of ASM program objects
-OBJECTS+=$(addprefix $(BUILD_DIR)/,$(notdir $(ASM_SOURCES:.s=.o)))
-vpath %.s $(sort $(dir $(ASM_SOURCES)))
+OBJECTS+=$(addprefix build/,$(notdir $(ASM_SOURCES:.s=.o)))
+vpath %.s $(sort $(dir $(ASM_SOURCES)\	))
 
-$(BUILD_DIR)/%.o: %.c | $(BUILD_DIR)
-	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+build/%.o: %.c
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=build/$(notdir $(<:.c=.lst)) $< -o $@
 
-$(BUILD_DIR)/%.o: %.s | $(BUILD_DIR)
+build/%.o: %.s
 	$(AS) -c $(CFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS)
+build/$(TARGET).elf: $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@
 
-$(BUILD_DIR)/%.hex: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
+build/%.hex: build/%.elf
 	$(HEX) $< $@
 
-$(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
+build/%.bin: build/%.elf
 	$(BIN) $< $@
 
-$(BUILD_DIR):
-	mkdir $@
+clean:
+	@ rm -f build/*.o build/*.d build/*.lst build/*.bin build/*.elf build/*.hex build/*.map
