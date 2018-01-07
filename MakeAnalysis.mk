@@ -6,15 +6,13 @@ all: folder sources
 folder: $(C_SOURCE)
 	@ echo 'Running static analysis with cppcheck in the project...'
 	@ echo ' '
-	cppcheck ./src/
+	cppcheck ./src/ ./src_stm32/
 	@ echo ' '
 	@ echo 'Finished'
 
 
-sources: $(C_SOURCE) 
+sources: $(C_SOURCE)
 	@ echo 'Running checkpatch in source and header files...'
-	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./inc/*.h 
+	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./src/*.h
 	@ echo 'Finished'
 	@ echo ' '
-
-
