@@ -8,6 +8,7 @@ datasheets/
 build/
 
 checkpatch.pl
+cleanfile
 template
 template_tests
 coverage.info
