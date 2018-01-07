@@ -26,7 +26,8 @@ src_stm32/stm32f1xx_it.c \
 src_stm32/stm32f1xx_hal_msp.c \
 drivers/CMSIS \
 drivers \
-drivers/STM32F1xx_HAL_Driver
+drivers/STM32F1xx_HAL_Driver \
+src
 
 # Firmware library path
 PERIFLIB_PATH:=
@@ -53,7 +54,8 @@ drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c \
+src/helloWorld.c
 
 
 # ASM sources
@@ -116,7 +118,8 @@ C_INCLUDES =  \
 -Idrivers/STM32F1xx_HAL_Driver/Inc \
 -Idrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -Idrivers/CMSIS/Device/ST/STM32F1xx/Include \
--Idrivers/CMSIS/Include
+-Idrivers/CMSIS/Include \
+-Isrc
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
