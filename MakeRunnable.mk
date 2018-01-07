@@ -150,7 +150,7 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) \
 # Build the application
 #######################################
 
-all: build/$(TARGET).elf build/$(TARGET).hex build/$(TARGET).bin
+all: $(TARGET).elf $(TARGET).hex $(TARGET).bin
 
 # List of objects
 OBJECTS=$(addprefix build/,$(notdir $(C_SOURCES:.c=.o)))
@@ -166,15 +166,15 @@ build/%.o: %.c
 build/%.o: %.s
 	$(AS) -c $(CFLAGS) $< -o $@
 
-build/$(TARGET).elf: $(OBJECTS)
+$(TARGET).elf: $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(SZ) $@
 
-build/%.hex: build/%.elf
+%.hex: %.elf
 	$(HEX) $< $@
 
-build/%.bin: build/%.elf
+%.bin: %.elf
 	$(BIN) $< $@
 
 clean:
-	@ rm -f build/*.o build/*.d build/*.lst build/*.bin build/*.elf build/*.hex build/*.map
+	@ rm -f build/*.o build/*.d build/*.lst *.bin *.elf *.hex build/*.map
