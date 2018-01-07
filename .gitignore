@@ -5,7 +5,6 @@ lib/
 objs/
 coverage/
 datasheets/
-build/
 
 checkpath.pl
 template
