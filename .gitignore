@@ -7,7 +7,7 @@ coverage/
 datasheets/
 build/
 
-checkpath.pl
+checkpatch.pl
 template
 template_tests
 coverage.info
