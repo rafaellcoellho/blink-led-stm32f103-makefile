@@ -17,7 +17,7 @@ flash:
 
 erase:
 	st-flash erase
-	
+
 clean:
 	make -f MakeRunnable.mk V=${V} clean
 	make -f MakeTests.mk V=${V} clean

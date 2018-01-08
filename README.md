@@ -76,6 +76,8 @@ make tests          -> test plataform independent in src
 make tests_coverage -> run lcov
 make runnable       -> create the .elf .bin and .hex
 make clean          -> clean the proj
+make flash          -> flash the uC
+make erase          -> erase the uC
 ```
 
 To add new files to the project, you must include them in the build script
