@@ -1,14 +1,14 @@
-/* Includes ------------------------------------------------------------------*/
+/* Includes -----------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_it.h"
 
-/* External variables --------------------------------------------------------*/
+/* External variables -------------------------------------------------------*/
 extern TIM_HandleTypeDef htim1;
 
-/******************************************************************************/
-/*            Cortex-M3 Processor Interruption and Exception Handlers         */
-/******************************************************************************/
+/*****************************************************************************/
+/*            Cortex-M3 Processor Interruption and Exception Handlers        */
+/*****************************************************************************/
 
 /**
 * @brief This function handles Non maskable interrupt.
@@ -91,12 +91,12 @@ void SysTick_Handler(void)
   HAL_SYSTICK_IRQHandler();
 }
 
-/******************************************************************************/
-/* STM32F1xx Peripheral Interrupt Handlers                                    */
-/* Add here the Interrupt Handlers for the used peripherals.                  */
-/* For the available peripheral interrupt handler names,                      */
-/* please refer to the startup file (startup_stm32f1xx.s).                    */
-/******************************************************************************/
+/*****************************************************************************/
+/* STM32F1xx Peripheral Interrupt Handlers                                   */
+/* Add here the Interrupt Handlers for the used peripherals.                 */
+/* For the available peripheral interrupt handler names,                     */
+/* please refer to the startup file (startup_stm32f1xx.s).                   */
+/*****************************************************************************/
 
 /**
 * @brief This function handles TIM1 break interrupt.

@@ -1,11 +1,11 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
-/* Includes ------------------------------------------------------------------*/
+/* Includes -----------------------------------------------------------------*/
 
-/* Private define ------------------------------------------------------------*/
+/* Private define -----------------------------------------------------------*/
 
-/* ########################## Assert Selection ############################## */
+/* ######################### Assert Selection ############################## */
 /**
   * @brief Uncomment the line below to expanse the "assert_param" macro in the
   *        HAL drivers code
@@ -22,4 +22,4 @@ void _Error_Handler(char *, int);
 }
 #endif
 
-#endif 
+#endif
