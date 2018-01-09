@@ -13,6 +13,6 @@ folder: $(C_SOURCE)
 
 sources: $(C_SOURCE)
 	@ echo 'Running checkpatch in source and header files...'
-	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./src/*.h
+	./scripts/checkpatch.pl --no-tree -f ./src/*.c ./src/*.h ./src_stm32/*.c ./src_stm32/*.h
 	@ echo 'Finished'
 	@ echo ' '
