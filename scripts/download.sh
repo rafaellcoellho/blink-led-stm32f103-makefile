@@ -2,7 +2,7 @@
 #
 # download.sh
 #
-# Use this script to fetch the latest checkpatch.pl from GitHub
+# Use this script to fetch the latest checkpatch.pl and cleanfile from GitHub
 
 readonly CHECKPATCH_SCRIPT="checkpatch.pl"
 readonly CLEANFILE_SCRIPT="cleanfile"
