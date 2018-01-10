@@ -108,6 +108,9 @@ C_DEFS =  \
 -DUSE_HAL_DRIVER \
 -DSTM32F103xB
 
+# Version of compiler
+C_COMPILER_VERSION = -std=c99
+
 # AS includes
 AS_INCLUDES =
 
@@ -123,7 +126,7 @@ C_INCLUDES =  \
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall $(C_COMPILER_VERSION) -fdata-sections -ffunction-sections
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
