@@ -19,15 +19,15 @@ OPT:= -Og
 
 # Source path
 SOURCES_DIR:=  \
+src \
 src_stm32 \
-inc_stm32 \
 src_stm32/main.c \
 src_stm32/stm32f1xx_it.c \
 src_stm32/stm32f1xx_hal_msp.c \
 drivers/CMSIS \
 drivers \
-drivers/STM32F1xx_HAL_Driver \
-src
+drivers/STM32F1xx_HAL_Driver
+
 
 # Firmware library path
 PERIFLIB_PATH:=
@@ -39,14 +39,15 @@ PERIFLIB_PATH:=
 # C sources
 
 C_SOURCES:= \
+src/helloWorld.c \
 src_stm32/main.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
 src_stm32/stm32f1xx_it.c \
 src_stm32/stm32f1xx_hal_msp.c \
+src_stm32/system_stm32f1xx.c \
+drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
+drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c \
-src_stm32/system_stm32f1xx.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c \
@@ -54,9 +55,7 @@ drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c \
-src/helloWorld.c
-
+drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -114,12 +113,12 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
+-Isrc \
 -Isrc_stm32 \
 -Idrivers/STM32F1xx_HAL_Driver/Inc \
 -Idrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -Idrivers/CMSIS/Device/ST/STM32F1xx/Include \
--Idrivers/CMSIS/Include \
--Isrc
+-Idrivers/CMSIS/Include
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
