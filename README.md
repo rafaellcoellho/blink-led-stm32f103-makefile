@@ -81,6 +81,9 @@ make flash          -> flash the uC
 make erase          -> erase the uC
 ```
 
+You need to change the TARGET variables in the MakeRunnable.mk and Makefile
+files to fit the name of your project.
+
 To add new files to the project, you must include them in the build script
 (MakeRunnable.mk file). If you include direct files in the src or src_stm32
 folders, go to the C_SOURCES variable and add the file name with the path to
@@ -122,6 +125,40 @@ C_INCLUDES =  \
 ```
 
 Making those changes unnecessary is an improvement for the future.
+
+To upload without having to remove the st-link v2 from the USB port, you only
+need to press the reset button on the board and erase all memory:
+
+```
+Press reset button
+
+$ make erase
+
+st-flash erase
+st-flash 1.4.0
+2018-01-12T14:00:53 INFO src/common.c: Loading device parameters....
+2018-01-12T14:00:53 INFO src/common.c: Device connected is: F1 Medium-density
+device, id 0x20036410
+2018-01-12T14:00:53 INFO src/common.c: SRAM size: 0x5000 bytes (20 KiB), Flash:
+ 0x20000 bytes (128 KiB) in pages of 1024 bytes
+
+$ make flash
+
+st-flash write blink_led.bin 0x8000000
+st-flash 1.4.0
+2018-01-12T14:00:58 INFO src/common.c: Loading device parameters....
+2018-01-12T14:00:58 INFO src/common.c: Device connected is: F1 Medium-density device, id 0x20036410
+2018-01-12T14:00:58 INFO src/common.c: SRAM size: 0x5000 bytes (20 KiB), Flash: 0x20000 bytes (128 KiB) in pages of 1024 bytes
+2018-01-12T14:00:58 INFO src/common.c: Attempting to write 4804 (0x12c4) bytes to stm32 address: 134217728 (0x8000000)
+Flash page at addr: 0x08001000 erased
+2018-01-12T14:00:58 INFO src/common.c: Finished erasing 5 pages of 1024 (0x400) bytes
+2018-01-12T14:00:58 INFO src/common.c: Starting Flash write for VL/F0/F3/F1_XL core id
+2018-01-12T14:00:58 INFO src/flash_loader.c: Successfully loaded flash loader in sram
+  5/5 pages written
+2018-01-12T14:00:59 INFO src/common.c: Starting verification of write complete
+2018-01-12T14:00:59 INFO src/common.c: Flash written and verified! jolly good!
+```
+
 
 ## Authors
 
