@@ -1,3 +1,5 @@
+TARGET_BIN:=blink_led.bin
+
 all: tests runnable
 
 analysis:
@@ -13,7 +15,7 @@ tests_coverage:
 	make -f MakeTests.mk V=${V} coverage
 
 flash:
-	st-flash write blink_led.bin 0x8000000
+	st-flash write $(TARGET_BIN) 0x8000000
 
 erase:
 	st-flash erase
