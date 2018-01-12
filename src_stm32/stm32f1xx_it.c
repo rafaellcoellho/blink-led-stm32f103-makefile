@@ -7,7 +7,6 @@
 #define CALMDOWN_COMPILER
 
 /* External variables -------------------------------------------------------*/
-extern TIM_HandleTypeDef htim1;
 
 /*****************************************************************************/
 /*            Cortex-M3 Processor Interruption and Exception Handlers        */
@@ -92,11 +91,3 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                     */
 /* please refer to the startup file (startup_stm32f1xx.s).                   */
 /*****************************************************************************/
-
-/*
- * @brief This function handles TIM1 break interrupt.
- */
-void TIM1_BRK_IRQHandler(void)
-{
-	HAL_TIM_IRQHandler(&htim1);
-}

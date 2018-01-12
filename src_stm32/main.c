@@ -7,12 +7,10 @@
 #define CALMDOWN_COMPILER
 
 /* Private variables --------------------------------------------------------*/
-TIM_HandleTypeDef htim1;
 
 /* Private function prototypes ----------------------------------------------*/
 static void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_TIM1_Init(void);
 
 int main(void)
 {
@@ -21,7 +19,6 @@ int main(void)
 HAL_Init();
 SystemClock_Config();
 MX_GPIO_Init();
-MX_TIM1_Init();
 helloWorld();
 
 /* Infinite loop-------------------------------------------------------------*/
@@ -63,32 +60,6 @@ HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
 
 /*SysTick_IRQn interrupt configuration*/
 HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-}
-
-/* TIM1 init function */
-static void MX_TIM1_Init(void)
-{
-TIM_ClockConfigTypeDef sClockSourceConfig;
-TIM_MasterConfigTypeDef sMasterConfig;
-
-htim1.Instance = TIM1;
-htim1.Init.Prescaler = 8000;
-htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-htim1.Init.Period = 500;
-htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-htim1.Init.RepetitionCounter = 0;
-htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-	_Error_Handler(__FILE__, __LINE__);
-
-sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-	_Error_Handler(__FILE__, __LINE__);
-
-sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-	_Error_Handler(__FILE__, __LINE__);
 }
 
 static void MX_GPIO_Init(void)
