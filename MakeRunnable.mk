@@ -47,8 +47,6 @@ src_stm32/system_stm32f1xx.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
