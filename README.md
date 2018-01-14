@@ -42,7 +42,7 @@ Let's use the gcc toolchain for ARM. You must install the compiler, assembler,
 linker, and some utilities.
 
 ```
-$ sudo apt-get install gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi
+$ sudo apt-get install gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi
 ```
 
 To upload the program to the target processor, the
