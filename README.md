@@ -159,6 +159,40 @@ Flash page at addr: 0x08001000 erased
 2018-01-12T14:00:59 INFO src/common.c: Flash written and verified! jolly good!
 ```
 
+To start a debug session, open a terminal and type:
+
+```
+$ st-util
+st-util 1.4.0
+2018-01-15T19:56:50 INFO src/usb.c: -- exit_dfu_mode
+2018-01-15T19:56:50 INFO src/common.c: Loading device parameters....
+2018-01-15T19:56:50 INFO src/common.c: Device connected is: F1 Medium-density device, id 0x20036410
+2018-01-15T19:56:50 INFO src/common.c: SRAM size: 0x5000 bytes (20 KiB), Flash: 0x20000 bytes (128 KiB) in pages of 1024 bytes
+2018-01-15T19:56:50 INFO src/gdbserver/gdb-server.c: Chip ID is 00000410, Core ID is  1ba01477.
+2018-01-15T19:56:50 INFO src/gdbserver/gdb-server.c: Listening at *:4242...
+```
+
+The gdb server was created. Open another terminal in the project root folder and type:
+
+```
+$ arm-none-eabi-gdb blink_led.elf
+(gdb) tar ext :4242
+Remote debugging using :4242
+0x1ffff020 in ?? ()
+(gdb) load
+Loading section .isr_vector, size 0x10c lma 0x8000000
+Loading section .text, size 0xcfc lma 0x800010c
+Loading section .rodata, size 0x40 lma 0x8000e08
+Loading section .init_array, size 0x4 lma 0x8000e48
+Loading section .fini_array, size 0x4 lma 0x8000e4c
+Loading section .data, size 0x4 lma 0x8000e50
+Start address 0x8000d58, load size 3668
+Transfer rate: 3 KB/sec, 611 bytes/write.
+(gdb) continue
+Continuing.
+```
+
+It is important to remember the logical state of the BOOT pins.
 
 ## Authors
 
