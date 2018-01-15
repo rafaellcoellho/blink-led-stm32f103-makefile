@@ -53,8 +53,7 @@ drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c 
+drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c 
 
 # ASM sources
 ASM_SOURCES =  \
