@@ -11,7 +11,7 @@ TARGET:=blink_led
 DEBUG:= 1
 
 # Optimization
-OPT:= 
+OPT:=
 
 #######################################
 # Paths
@@ -21,12 +21,7 @@ OPT:=
 SOURCES_DIR:=  \
 src \
 src_stm32 \
-src_stm32/main.c \
-src_stm32/stm32f1xx_it.c \
-src_stm32/stm32f1xx_hal_msp.c \
-drivers/CMSIS \
-drivers \
-drivers/STM32F1xx_HAL_Driver
+drivers
 
 
 # Firmware library path
