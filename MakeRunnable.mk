@@ -11,7 +11,7 @@ TARGET:=blink_led
 DEBUG:= 1
 
 # Optimization
-OPT:= -Og
+OPT:= 
 
 #######################################
 # Paths
@@ -53,7 +53,7 @@ drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c \
 drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c \
-drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c 
+drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
 
 # ASM sources
 ASM_SOURCES =  \
