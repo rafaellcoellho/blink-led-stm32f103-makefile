@@ -29,5 +29,5 @@ HAL_NVIC_SetPriority(PendSV_IRQn, 0, 0);
 HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 
 /* DISABLE: JTAG-DP Disabled and SW-DP Disabled */
-__HAL_AFIO_REMAP_SWJ_DISABLE();
+//__HAL_AFIO_REMAP_SWJ_DISABLE();
 }
