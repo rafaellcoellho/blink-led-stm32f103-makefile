@@ -9,7 +9,7 @@ of a led.
 First you need to clone this repository on your machine.
 
 ```
-$ git clone https://github.com/rafaellcoellho/blink-led-stm32f103.git
+$ git clone https://github.com/rafaellcoellho/blink-led-stm32f103-makefile.git
 ```
 
 To fit the kernel linux coding style, the
